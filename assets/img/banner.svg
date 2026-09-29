@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="Abdellah Rouias — Full-Stack Engineer, Backend, Systems, Applied AI">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0e12"/>
+      <stop offset="55%" stop-color="#07090b"/>
+      <stop offset="100%" stop-color="#0a0d10"/>
+    </linearGradient>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f0a830" stop-opacity="0"/>
+      <stop offset="18%" stop-color="#f0a830" stop-opacity=".95"/>
+      <stop offset="82%" stop-color="#57d7c6" stop-opacity=".8"/>
+      <stop offset="100%" stop-color="#57d7c6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f0a830"/>
+      <stop offset="100%" stop-color="#ffc663"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="18%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#f0a830" stop-opacity=".16"/>
+      <stop offset="100%" stop-color="#f0a830" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#e9e6df" stroke-opacity=".05" stroke-width="1"/>
+    </pattern>
+    <clipPath id="frame"><rect x="1" y="1" width="1198" height="298"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="300" fill="url(#bg)"/>
+    <rect width="1200" height="300" fill="url(#grid)"/>
+    <rect width="1200" height="300" fill="url(#glow)"/>
+
+    <!-- top/bottom hairlines -->
+    <rect x="0" y="0" width="1200" height="1" fill="url(#rule)"/>
+    <rect x="0" y="299" width="1200" height="1" fill="url(#rule)"/>
+
+    <!-- corner ticks -->
+    <g stroke="#f0a830" stroke-opacity=".55" stroke-width="1.4">
+      <path d="M20 46V20h26"/>
+      <path d="M1180 46V20h-26"/>
+      <path d="M20 254v26h26"/>
+      <path d="M1180 254v26h-26"/>
+    </g>
+
+    <!-- left rail: rotated section index -->
+    <g transform="translate(58 150) rotate(-90)">
+      <text x="0" y="0" text-anchor="middle" font-family="'JetBrains Mono',ui-monospace,Menlo,monospace"
+            font-size="12.5" letter-spacing="5.2" fill="#e9e6df" fill-opacity=".34">SYSTEMS DOSSIER / 2026</text>
+    </g>
+    <line x1="34" y1="46" x2="34" y2="254" stroke="#e9e6df" stroke-opacity=".12" stroke-width="1"/>
+
+    <!-- status pill -->
+    <g transform="translate(104 60)">
+      <rect x="0" y="0" width="188" height="30" rx="15" fill="#f0a830" fill-opacity=".1" stroke="#f0a830" stroke-opacity=".42" stroke-width="1"/>
+      <circle cx="19" cy="15" r="4.5" fill="#57d7c6"/>
+      <circle cx="19" cy="15" r="8" fill="none" stroke="#57d7c6" stroke-opacity=".45" stroke-width="1"/>
+      <text x="36" y="20" font-family="'JetBrains Mono',ui-monospace,Menlo,monospace" font-size="12.5"
+            letter-spacing="1.4" fill="#e9e6df" fill-opacity=".9">OPEN TO WORK</text>
+    </g>
+
+    <!-- name -->
+    <text x="104" y="150" font-family="'Archivo',system-ui,sans-serif" font-size="74" font-weight="800"
+          letter-spacing="-2.4" fill="#e9e6df">ABDELLAH <tspan fill="url(#accent)">ROUIAS</tspan></text>
+
+    <!-- role line -->
+    <text x="106" y="188" font-family="'JetBrains Mono',ui-monospace,Menlo,monospace" font-size="16.5"
+          letter-spacing="2.6" fill="#e9e6df" fill-opacity=".62">BACKEND · SYSTEMS · APPLIED AI</text>
+
+    <!-- hairline under name -->
+    <rect x="104" y="206" width="560" height="1" fill="url(#rule)"/>
+
+    <!-- tagline -->
+    <text x="104" y="240" font-family="'JetBrains Mono',ui-monospace,Menlo,monospace" font-size="13.5"
+          letter-spacing=".5" fill="#e9e6df" fill-opacity=".44">Backends that hold their shape. Interfaces that stay out of the way.</text>
+
+    <!-- right: kernel-topology motif -->
+    <g transform="translate(1010 150)" fill="none">
+      <circle r="96" stroke="#57d7c6" stroke-opacity=".14" stroke-width="1"/>
+      <circle r="70" stroke="#f0a830" stroke-opacity=".16" stroke-width="1"/>
+      <circle r="44" stroke="#57d7c6" stroke-opacity=".2" stroke-width="1"/>
+      <ellipse rx="96" ry="38" stroke="#e9e6df" stroke-opacity=".1" stroke-width="1" transform="rotate(-24)"/>
+      <ellipse rx="96" ry="38" stroke="#e9e6df" stroke-opacity=".07" stroke-width="1" transform="rotate(38)"/>
+      <g stroke="#57d7c6" stroke-opacity=".3" stroke-width="1">
+        <path d="M0 0 62 -46M0 0 -58 40M0 0 22 66"/>
+      </g>
+      <circle r="7" fill="#f0a830" stroke="none"/>
+      <circle r="7" fill="none" stroke="#f0a830" stroke-opacity=".55" stroke-width="1.2" transform="translate(62 -46)"/>
+      <circle r="7" fill="none" stroke="#f0a830" stroke-opacity=".55" stroke-width="1.2" transform="translate(-58 40)"/>
+      <circle r="7" fill="none" stroke="#57d7c6" stroke-opacity=".55" stroke-width="1.2" transform="translate(22 66)"/>
+    </g>
+  </g>
+</svg>
