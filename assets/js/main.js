@@ -68,7 +68,44 @@
   var ARROW = '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">' +
               '<path d="M2 10 10 2M4.5 2H10v5.5" stroke="currentColor" stroke-width="1.3"/></svg>';
 
-  /* ---- 2. Renderers ------------------------------------------------------ */
+  /* ---- 2. Tech logos -----------------------------------------------------
+     Resolves a technology name to a local brand mark in assets/img/.
+     Tries an exact match first, then falls back to the leading word, so
+     "Spring Security + JWT" still finds the Spring mark and "eBPF (CO-RE)"
+     finds the Linux one. Returns null when nothing matches — the caller
+     then renders plain text, so an unknown name never breaks the layout.
+     ---------------------------------------------------------------------- */
+  function iconFor(label) {
+    var map = window.TECH_ICONS;
+    if (!map) return null;
+    var raw = String(label == null ? '' : label).toLowerCase().trim();
+
+    // strip parentheticals: "eBPF (CO-RE)" -> "ebpf"
+    var base = raw.replace(/\([^)]*\)/g, '').trim();
+    // strip trailing version numbers: "react 18" -> "react", "spring boot 3" -> "spring boot"
+    base = base.replace(/\s+\d+(\.\d+)*$/, '').trim();
+    if (!base) return null;
+
+    if (map[base]) return map[base];
+
+    // fallback: the first word, so "JPA / Hibernate" -> "jpa"
+    var first = base.split(/[\s+/]/)[0];
+    return map[first] || null;
+  }
+
+  /* Renders a technology as logo + label. Falls back to a bare text chip
+     when no mark exists for it. */
+  function techChip(label, cls) {
+    var file = iconFor(label);
+    var name = esc(label);
+    if (!file) return '<span class="' + cls + '">' + name + '</span>';
+    return '<span class="' + cls + ' tech">' +
+             '<img class="tech__logo" src="assets/img/' + esc(file) + '.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" width="16" height="16" />' +
+             '<span class="tech__label">' + name + '</span>' +
+           '</span>';
+  }
+
+  /* ---- 3. Renderers ------------------------------------------------------ */
   function renderStats() {
     var host = $('[data-stats]');
     if (!host || !window.STATS) return;
@@ -84,7 +121,7 @@
     var host = $('[data-ticker]');
     if (!host || !window.TICKER) return;
     var run = window.TICKER.map(function (t) {
-      return '<span class="ticker__item">' + esc(t) + '</span>';
+      return '<span class="ticker__item">' + techChip(t, 'ticker__chip') + '</span>';
     }).join('');
     host.innerHTML = run + run;   // duplicated so translateX(-50%) loops cleanly
   }
@@ -106,7 +143,7 @@
     if (!host || !window.PROJECTS) return;
     host.innerHTML = window.PROJECTS.map(function (p, i) {
       var chips = (p.stack || []).map(function (s) {
-        return '<span class="chip">' + esc(s) + '</span>';
+        return techChip(s, 'chip');
       }).join('');
       return '' +
         '<article class="card reveal" style="--d:' + (i % 2 ? 0.08 : 0) + 's">' +
@@ -133,7 +170,9 @@
     var host = $('[data-capabilities]');
     if (!host || !window.CAPABILITIES) return;
     host.innerHTML = window.CAPABILITIES.map(function (c, i) {
-      var items = (c.items || []).map(function (it) { return '<li>' + esc(it) + '</li>'; }).join('');
+      var items = (c.items || []).map(function (it) {
+        return '<li>' + techChip(it, 'cap__tech') + '</li>';
+      }).join('');
       return '' +
         '<div class="cap reveal" style="--d:' + (i % 3) * 0.08 + 's">' +
           '<span class="cap__code">' + esc(c.code) + '</span>' +

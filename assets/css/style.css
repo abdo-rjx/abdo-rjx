@@ -950,3 +950,54 @@ body[data-cursor='hover'] .cursor::after { background: var(--teal); }
 .btn:hover .btn__arrow { transform: translate(3px, -3px); }
 .topbar__cta { margin-left: 0.5rem; }
 
+/* ---------- 14. Tech logos ------------------------------------------------
+   Brand marks live in assets/img/ and are injected by techChip() in main.js.
+   The marks are the official full-colour logos, so they are kept at their
+   natural colours and simply given a little more presence on hover.
+   ---------------------------------------------------------------------- */
+.tech {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.tech__logo {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  object-fit: contain;
+  /* the marks are colourful, so ease them toward the muted type until hover */
+  opacity: 0.82;
+  filter: saturate(0.9);
+  transition: opacity 0.3s var(--ease-out),
+              transform 0.35s var(--ease-out),
+              filter 0.3s var(--ease-out);
+}
+.tech:hover .tech__logo {
+  opacity: 1;
+  filter: saturate(1.15);
+  transform: scale(1.18);
+}
+.tech__label { white-space: nowrap; }
+
+/* project cards */
+.chip.tech { gap: 0.38rem; padding: 0.22rem 0.55rem 0.22rem 0.42rem; }
+.chip.tech:hover { border-color: var(--line-strong); }
+.card:hover .chip.tech .tech__logo { opacity: 1; }
+
+/* scrolling ticker */
+.ticker__item { gap: 2.75rem; }
+.ticker__chip.tech { gap: 0.55rem; }
+.ticker__chip .tech__logo { width: 17px; height: 17px; }
+.ticker__item:hover .tech__logo { opacity: 1; transform: scale(1.15); }
+.ticker__item:hover .tech__label { color: var(--bone); }
+
+/* capability list */
+.cap__list li { display: inline-flex; }
+.cap__tech.tech { gap: 0.4rem; }
+.cap__tech .tech__logo { width: 15px; height: 15px; }
+.cap__tech.tech:hover .tech__label { color: var(--amber); }
+
+@media (prefers-reduced-motion: reduce) {
+  .tech__logo, .ticker__item:hover .tech__logo, .tech:hover .tech__logo { transform: none; }
+}
+

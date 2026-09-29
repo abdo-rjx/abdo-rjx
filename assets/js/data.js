@@ -37,8 +37,8 @@ const HERO = {
 
 /* The scrolling strip under the hero. */
 const TICKER = [
-  'Java 21',
-  'Spring Boot 3',
+  'Java',
+  'Spring Boot',
   'React',
   'TypeScript',
   'Next.js',
@@ -52,11 +52,56 @@ const TICKER = [
   'MongoDB',
   'Docker',
   'Tailwind',
-  'XGBoost',
-  'Isolation Forest',
-  'FAISS',
+  'Vite',
+  'Maven',
+  'Hibernate',
+  'scikit-learn',
   'Tauri',
+  'Git',
 ];
+
+/* ---------------------------------------------------------------------------
+   TECH LOGOS
+   Maps a technology name to a file in assets/img/ (official brand marks,
+   downloaded from the Devicon set — vendored locally so the site works
+   offline and never depends on a third-party CDN at runtime).
+
+   To use a logo in a list, wrap the name:  { label: 'Java', icon: true }
+   Anything without a matching entry here simply renders as plain text.
+   ------------------------------------------------------------------------ */
+const TECH_ICONS = {
+  java: 'java',
+  spring: 'spring',
+  'spring boot': 'spring',
+  react: 'react',
+  typescript: 'typescript',
+  'next.js': 'nextjs',
+  'nextjs': 'nextjs',
+  angular: 'angularjs',
+  angularjs: 'angularjs',
+  python: 'python',
+  fastapi: 'fastapi',
+  c: 'c',
+  linux: 'linux',
+  ebpf: 'linux',
+  postgresql: 'postgresql',
+  postgres: 'postgresql',
+  mongodb: 'mongodb',
+  mongo: 'mongodb',
+  docker: 'docker',
+  tailwind: 'tailwindcss',
+  'tailwind css': 'tailwindcss',
+  tailwindcss: 'tailwindcss',
+  vite: 'vite',
+  maven: 'maven',
+  hibernate: 'hibernate',
+  jpa: 'hibernate',
+  'scikit-learn': 'scikitlearn',
+  sklearn: 'scikitlearn',
+  tauri: 'tauri',
+  git: 'git',
+  github: 'git',
+};
 
 /* Headline numbers. Keep these honest — recruiters do check. */
 const STATS = [
@@ -208,7 +253,7 @@ const CAPABILITIES = [
     body:
       'Services designed around clear boundaries — REST APIs, layered domain ' +
       'logic, and auth that is boring in the best way.',
-    items: ['Java 21', 'Spring Boot 3', 'Spring Security + JWT', 'REST APIs', 'JPA / Hibernate', 'Maven'],
+    items: ['Java', 'Spring Boot', 'Spring Security + JWT', 'REST APIs', 'JPA / Hibernate', 'Maven'],
   },
   {
     code: 'B',
@@ -216,7 +261,7 @@ const CAPABILITIES = [
     body:
       'Typed, component-driven interfaces that load fast and stay ' +
       'understandable six months later.',
-    items: ['React 18', 'TypeScript', 'Next.js 14', 'Angular 19', 'Tailwind', 'Vite'],
+    items: ['React', 'TypeScript', 'Next.js', 'Angular', 'Tailwind', 'Vite'],
   },
   {
     code: 'C',
@@ -224,7 +269,7 @@ const CAPABILITIES = [
     body:
       'Closer to the metal than the framework — where the interesting ' +
       'guarantees actually live.',
-    items: ['eBPF (CO-RE)', 'C', 'Linux internals', 'PE / import analysis', 'Tauri 2'],
+    items: ['eBPF', 'C', 'Linux', 'PE / import analysis', 'Tauri', 'Git'],
   },
   {
     code: 'D',
@@ -232,7 +277,7 @@ const CAPABILITIES = [
     body:
       'Classical models where they are the right tool, LLM pipelines where ' +
       'they are genuinely useful.',
-    items: ['Isolation Forest', 'XGBoost', 'scikit-learn', 'FAISS + embeddings', 'RAG', 'Agent orchestration'],
+    items: ['Python', 'scikit-learn', 'XGBoost', 'Isolation Forest', 'FAISS + embeddings', 'RAG', 'Agent orchestration'],
   },
   {
     code: 'E',
@@ -240,7 +285,7 @@ const CAPABILITIES = [
     body:
       'Reproducible environments. If it cannot be brought up with one command, ' +
       'it is not finished.',
-    items: ['PostgreSQL', 'MongoDB', 'Docker Compose', 'Observability', 'CI-ready repos'],
+    items: ['PostgreSQL', 'MongoDB', 'Docker', 'Docker Compose', 'Observability', 'CI-ready repos'],
   },
   {
     code: 'F',
@@ -299,3 +344,19 @@ const CONTACT = {
     'GitHub is the fastest way to see how I think.',
   cta: 'View my GitHub',
 };
+
+/* ---------------------------------------------------------------------------
+   PUBLISH TO window
+   `const` at the top level of a classic <script> creates a script-scoped
+   binding, NOT a property on window — so main.js could not see any of the
+   data above. These lines expose it explicitly. Keep this block last.
+   ------------------------------------------------------------------------ */
+window.CONFIG         = CONFIG;
+window.HERO           = HERO;
+window.TICKER         = TICKER;
+window.TECH_ICONS     = TECH_ICONS;
+window.STATS          = STATS;
+window.PROJECTS       = PROJECTS;
+window.CAPABILITIES   = CAPABILITIES;
+window.TIMELINE       = TIMELINE;
+window.CONTACT        = CONTACT;
